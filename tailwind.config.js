@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        'brand-blue': 'rgb(167 208 216)',
+        'brand-blue': '#A7D0D8',
       },
       fontFamily: {
         RecklessNeue: [
@@ -15,16 +15,6 @@ export default {
           'Times New Roman',
           'Times, serif',
         ],
-      },
-      fontWeight: {
-        'extra-light': 200,
-        light: 300,
-        normal: 400,
-        medium: 500,
-        'semi-bold': 600,
-        bold: 700,
-        'extra-bold': 800,
-        black: 900,
       },
     },
   },
