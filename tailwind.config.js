@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         'brand-blue': '#A7D0D8',
+        'text-brand-black': '#140a24',
       },
       lineHeight: {
         15: '3.75rem',

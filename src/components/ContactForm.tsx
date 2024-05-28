@@ -42,7 +42,7 @@ export default function ContactForm() {
                   <h1>Contact us</h1>
                 </div>
               </fieldset>
-              <fieldset className='form-columns-2'>
+              <fieldset className='grid grid-cols-2 gap-4 mb-4'>
                 <div>
                   <label htmlFor=''>
                     <span>First name</span>
@@ -80,7 +80,7 @@ export default function ContactForm() {
                   </ul>
                 </div>
               </fieldset>
-              <fieldset className='form-columns-2'>
+              <fieldset className='grid grid-cols-2 gap-4 mb-4'>
                 <div>
                   <label htmlFor=''>
                     <span>Email</span>
@@ -118,11 +118,65 @@ export default function ContactForm() {
                   </ul>
                 </div>
               </fieldset>
-              <fieldset className='form-columns-1'></fieldset>
-              <fieldset className='form-columns-1'></fieldset>
-              <fieldset className='form-columns-1'></fieldset>
-              <fieldset className='form-columns-1'></fieldset>
-              <div className='submit'></div>
+              <fieldset className='grid grid-cols-2 gap-4 mb-4'>
+                <div>
+                  <label htmlFor=''></label>
+                  <div>
+                    <select name='' id=''></select>
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor=''></label>
+                  <div>
+                    <input type='text' />
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset className='form-columns-1'>
+                <div>
+                  <label htmlFor=''></label>
+                  <div>
+                    <textarea
+                      className='w-full'
+                      name=''
+                      placeholder='terte'
+                      id=''
+                    ></textarea>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset className='form-columns-1'>
+                <div>
+                  <div>
+                    <ul>
+                      <li>
+                        <label htmlFor=''></label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset className='form-columns-1'>
+                <div>
+                  <div>
+                    <ul>
+                      <li>
+                        <label htmlFor=''></label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </fieldset>
+              <div className='submit'>
+                <div></div>
+                <div>
+                  <input
+                    type='submit'
+                    value='Submit'
+                    className=' primary large bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer'
+                  />
+                </div>
+              </div>
             </form>
           </div>
         </div>
