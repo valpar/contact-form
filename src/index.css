@@ -1,44 +1,13 @@
 @tailwind base;
+h1 {
+  @apply text-5xl leading-15;
+}
+h2 {
+  @apply text-xl;
+}
+h3 {
+  @apply text-lg;
+}
+
 @tailwind components;
 @tailwind utilities;
-
-*,
-:after,
-:before {
-  --tw-border-spacing-x: 0;
-  --tw-border-spacing-y: 0;
-}
-*,
-:after,
-:before {
-  box-sizing: border-box;
-  border: 0 solid #e5e7eb;
-}
-user agent stylesheet p {
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  unicode-bidi: isolate;
-}
-.relative {
-  position: relative;
-}
-@media (min-width: 768px) {
-  .container-tuum-padded-x {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
-.container-tuum-padded-x {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-.container-tuum,
-.container-tuum-padded-x {
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  max-width: 1280px;
-}

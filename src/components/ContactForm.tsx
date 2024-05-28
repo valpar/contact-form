@@ -1,4 +1,4 @@
-import React from 'react';
+import './ContactForm.css';
 
 export default function ContactForm() {
   return (
@@ -6,27 +6,32 @@ export default function ContactForm() {
       {' '}
       <div className='grid grid-cols-1 mt-[6%] tall:mt-[3%] tall-md:mt-[6%] tall:pb-[3%] pb-[6%] lg:[grid-template-columns:35%_65%] sm:px-10 md:px-16 lg:px-10 xl:px-20'>
         <aside>
-          <div className='space-y-4 pb-7 text-center sm:text-left md:space-y-7 lg:pb-0'>
-            <p className='text-xl md:font-RecklessNeue font-extralight md:text-4xl'>
-              Media enquiries:
-            </p>
-            <a
-              href='#'
-              className='underline-link text-lg after:bottom-0.5 after:w-full after:bg-brand-black hover:after:w-0 hover:after:bg-transparent focus-visible:rounded focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-brand-black/50'
-            >
-              press@tuum.com
-            </a>
+          <div className='"space-y-4 pb-7 text-center sm:text-left md:space-y-7 lg:pb-0"'>
+            <div>
+              {' '}
+              <p className='text-xl md:font-reckless-neue md:text-4xl'>
+                Media enquiries:
+              </p>
+              <a
+                href='#'
+                className='underline-link text-lg after:bottom-0.5 after:w-full after:bg-brand-black hover:after:w-0 hover:after:bg-transparent focus-visible:rounded focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-brand-black/50'
+              >
+                press@tuum.com
+              </a>
+            </div>
           </div>
-          <div>
-            <p className='md:font-RecklessNeue font-normal md:text-4xl'>
-              Career questions:
-            </p>
-            <a
-              href=''
-              className='underline-link text-lg after:bottom-0.5 after:w-full after:bg-brand-black hover:after:w-0 hover:after:bg-transparent focus-visible:rounded focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-brand-black/50'
-            >
-              careers@tuum.com
-            </a>
+          <div className='space-y-4 pb-7 text-center sm:text-left md:space-y-7 lg:pb-0'>
+            <div>
+              <p className='text-xl md:font-reckless-neue md:text-4xl'>
+                Career questions:
+              </p>
+              <a
+                href=''
+                className='underline-link text-lg after:bottom-0.5 after:w-full after:bg-brand-black hover:after:w-0 hover:after:bg-transparent focus-visible:rounded focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-brand-black/50'
+              >
+                careers@tuum.com
+              </a>
+            </div>
           </div>
         </aside>
         <div className='bg-white tall:py-6 tall-md:py-8 py-8 px-8 lg:px-10 xl:px-16 rounded-[40px]'>
@@ -113,7 +118,6 @@ export default function ContactForm() {
                   </ul>
                 </div>
               </fieldset>
-              <fieldset className='form-columns-2'></fieldset>
               <fieldset className='form-columns-1'></fieldset>
               <fieldset className='form-columns-1'></fieldset>
               <fieldset className='form-columns-1'></fieldset>
