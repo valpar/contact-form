@@ -1,9 +1,15 @@
+import * as Form from '@radix-ui/react-form';
 import './ContactForm.css';
 
 export default function ContactForm() {
   return (
     <div className='container-tuum-padded-x relative'>
-      {' '}
+      <button
+        type='button'
+        className='modal__button group absolute z-50 focus-visible:rounded focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-0 focus-visible:outline-brand-black/50 right-[20px] sm:right-[70px] md:right-[102px] lg:right-[108px] xl:right-[172px] lg:top-[52px] bg-contain !bg-center'
+      >
+        <img src='/src/assets/icon--close.svg' alt='close' />
+      </button>
       <div className='grid grid-cols-1 mt-[6%] tall:mt-[3%] tall-md:mt-[6%] tall:pb-[3%] pb-[6%] lg:[grid-template-columns:35%_65%] sm:px-10 md:px-16 lg:px-10 xl:px-20'>
         <aside>
           <div className='"space-y-4 pb-7 text-center sm:text-left md:space-y-7 lg:pb-0"'>
@@ -36,148 +42,102 @@ export default function ContactForm() {
         </aside>
         <div className='bg-white tall:py-6 tall-md:py-8 py-8 px-8 lg:px-10 xl:px-16 rounded-[40px]'>
           <div className='wrap'>
-            <form action=''>
-              <fieldset className='form-columns-0'>
-                <div>
-                  <h1>Contact us</h1>
-                </div>
-              </fieldset>
-              <fieldset className='grid grid-cols-2 gap-4 mb-4'>
-                <div>
-                  <label htmlFor=''>
-                    <span>First name</span>
-                  </label>
-                  <div className='input'>
-                    <input type='text'></input>
-                  </div>
-                  <ul
-                    className='no-list hs-error-msgs inputs-list'
-                    role='alert'
-                  >
-                    <li>
-                      <label className='hs-error-msg hs-main-font-element'>
-                        Please complete this required field.
-                      </label>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <label htmlFor=''>
-                    <span>Last name</span>
-                  </label>
-                  <div className='input'>
-                    <input type='text'></input>
-                  </div>
-                  <ul
-                    className='no-list hs-error-msgs inputs-list'
-                    role='alert'
-                  >
-                    <li>
-                      <label className='hs-error-msg hs-main-font-element'>
-                        Please complete this required field.
-                      </label>
-                    </li>
-                  </ul>
-                </div>
-              </fieldset>
-              <fieldset className='grid grid-cols-2 gap-4 mb-4'>
-                <div>
-                  <label htmlFor=''>
-                    <span>Email</span>
-                  </label>
-                  <div className='input'>
-                    <input type='text'></input>
-                  </div>
-                  <ul
-                    className='no-list hs-error-msgs inputs-list'
-                    role='alert'
-                  >
-                    <li>
-                      <label className='hs-error-msg hs-main-font-element'>
-                        Please complete this required field.
-                      </label>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <label htmlFor=''>
-                    <span>Job title</span>
-                  </label>
-                  <div className='input'>
-                    <input type='text'></input>
-                  </div>
-                  <ul
-                    className='no-list hs-error-msgs inputs-list'
-                    role='alert'
-                  >
-                    <li>
-                      <label className='hs-error-msg hs-main-font-element'>
-                        Please complete this required field.
-                      </label>
-                    </li>
-                  </ul>
-                </div>
-              </fieldset>
-              <fieldset className='grid grid-cols-2 gap-4 mb-4'>
-                <div>
-                  <label htmlFor=''></label>
-                  <div>
-                    <select name='' id=''></select>
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor=''></label>
-                  <div>
-                    <input type='text' />
-                  </div>
-                </div>
-              </fieldset>
-              <fieldset className='form-columns-1'>
-                <div>
-                  <label htmlFor=''></label>
-                  <div>
-                    <textarea
-                      className='w-full'
-                      name=''
-                      placeholder='terte'
-                      id=''
-                    ></textarea>
-                  </div>
-                </div>
-              </fieldset>
-              <fieldset className='form-columns-1'>
-                <div>
-                  <div>
-                    <ul>
-                      <li>
-                        <label htmlFor=''></label>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </fieldset>
-              <fieldset className='form-columns-1'>
-                <div>
-                  <div>
-                    <ul>
-                      <li>
-                        <label htmlFor=''></label>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </fieldset>
-              <div className='submit'>
-                <div></div>
-                <div>
-                  <input
-                    type='submit'
-                    value='Submit'
-                    className=' primary large bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer'
-                  />
-                </div>
+            <Form.Root>
+              <div className='mb-8 flex justify-between items-center'>
+                <h1 className='text-5xl leading-15'>Contact us</h1>
               </div>
-            </form>
+              <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                <Form.Field name='firstName'>
+                  <Form.Control asChild>
+                    <input
+                      className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300'
+                      placeholder='First name'
+                      required
+                    />
+                  </Form.Control>
+                </Form.Field>
+                <Form.Field name='lastName'>
+                  <Form.Control asChild>
+                    <input
+                      className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300'
+                      placeholder='Last name'
+                      required
+                    />
+                  </Form.Control>
+                </Form.Field>
+                <Form.Field name='email'>
+                  <Form.Control asChild>
+                    <input
+                      className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300'
+                      placeholder='Email'
+                      type='email'
+                      required
+                    />
+                  </Form.Control>
+                </Form.Field>
+                <Form.Field name='phone'>
+                  <Form.Control asChild>
+                    <input
+                      className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300'
+                      placeholder='Job Title'
+                      required
+                    />
+                  </Form.Control>
+                </Form.Field>
+                <Form.Field name='option'>
+                  <Form.Control asChild>
+                    <select
+                      className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300'
+                      required
+                    >
+                      <option value=''>Country</option>
+                      <option value='option1'>Option 1</option>
+                      <option value='option2'>Option 2</option>
+                    </select>
+                  </Form.Control>
+                </Form.Field>
+                <Form.Field name='extra'>
+                  <Form.Control asChild>
+                    <input
+                      className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300'
+                      placeholder='Company name'
+                      required
+                    />
+                  </Form.Control>
+                </Form.Field>
+              </div>
+              <Form.Field name='message'>
+                <Form.Control asChild>
+                  <textarea
+                    className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300 resize-none h-36 mt-'
+                    placeholder='What would you like to talk about?'
+                    required
+                  />
+                </Form.Control>
+              </Form.Field>
+              <Form.Field name='privacyPolicy'>
+                <Form.Control asChild>
+                  <label>
+                    <input type='checkbox' required />
+                    By submitting this form I accept privacy policy and cookie
+                    policy. *
+                  </label>
+                </Form.Control>
+              </Form.Field>
+              <Form.Field name='newsletter'>
+                <Form.Control asChild>
+                  <label>
+                    <input type='checkbox' />I would like to receive your
+                    newsletter.
+                  </label>
+                </Form.Control>
+              </Form.Field>
+              <Form.Submit asChild>
+                <button className='whitespace-pre-wrap text-[rgb(20,9,35)] text-base leading-6 px-3 py-2 bg-[rgb(167,208,216)] rounded-lg mt-4'>
+                  Submit
+                </button>
+              </Form.Submit>
+            </Form.Root>
           </div>
         </div>
       </div>
