@@ -23,7 +23,7 @@ export default function ContactForm() {
       >
         <img src='/src/assets/icon--close.svg' alt='close' />
       </button>
-      <div className='grid grid-cols-1 mt-[6%] tall:mt-[3%] tall-md:mt-[6%] tall:pb-[3%] pb-[6%] lg:[grid-template-columns:35%_65%] sm:px-10 md:px-16 lg:px-10 xl:px-20'>
+      <div className='grid sm:grid-cols-2 md:grid-cols-1 mt-[6%] tall:mt-[3%] tall-md:mt-[6%] tall:pb-[3%] pb-[6%] lg:[grid-template-columns:35%_65%] sm:px-10 md:px-16 lg:px-10 xl:px-20'>
         <aside>
           <div className='"space-y-4 pb-7 text-center sm:text-left md:space-y-7 lg:pb-0"'>
             <div>
@@ -59,7 +59,7 @@ export default function ContactForm() {
               <div className='mb-8 flex justify-between items-center'>
                 <h1 className='text-5xl leading-15'>Contact us</h1>
               </div>
-              <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+              <div className='grid grid-cols-2 gap-4'>
                 <Form.Field name='firstName'>
                   <Form.Control asChild>
                     <input
@@ -88,7 +88,7 @@ export default function ContactForm() {
                     />
                   </Form.Control>
                 </Form.Field>
-                <Form.Field name='phone'>
+                <Form.Field name='jobTitle'>
                   <Form.Control asChild>
                     <input
                       className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300'
