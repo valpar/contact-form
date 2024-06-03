@@ -25,9 +25,7 @@ body {
 h1 {
   font-family: Reckless Neue, ui-serif, Georgia, Cambria, Times New Roman, Times,
     serif;
-  font-size: 3rem;
   letter-spacing: -0.02em;
-  line-height: 3.75rem;
 }
 
 @font-face {
@@ -73,18 +71,6 @@ h1 {
   margin-right: auto;
   width: 100%;
   max-width: 1280px;
-}
-
-.hbspt-wrap .hbspt-form .hs-button {
-  white-space: pre-wrap;
-  color: rgb(20 9 35 / var(--tw-text-opacity));
-  font-size: 1rem;
-  line-height: 1.5rem;
-  padding: 0.625rem 1.125rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(167 208 216 / var(--tw-bg-opacity));
-  border-radius: 0.75rem;
-  margin-top: 1rem;
 }
 
 @media (min-width: 768px) {
