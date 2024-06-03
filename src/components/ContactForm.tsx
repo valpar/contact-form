@@ -1,7 +1,20 @@
 import * as Form from '@radix-ui/react-form';
+import { useEffect, useState } from 'react';
 import './ContactForm.css';
 
 export default function ContactForm() {
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    fetch('https://countriesnow.space/api/v0.1/countries/flag/unicode')
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Fetched data:', data);
+        setCountries(data.data);
+      })
+      .catch((error) => console.error('Fetch error:', error));
+  }, []);
+
   return (
     <div className='container-tuum-padded-x relative'>
       <button
@@ -15,7 +28,7 @@ export default function ContactForm() {
           <div className='"space-y-4 pb-7 text-center sm:text-left md:space-y-7 lg:pb-0"'>
             <div>
               {' '}
-              <p className='text-xl md:font-reckless-neue md:text-4xl'>
+              <p className='text-xl md:font-reckless-neue md:text-4xl '>
                 Media enquiries:
               </p>
               <a
@@ -91,8 +104,11 @@ export default function ContactForm() {
                       required
                     >
                       <option value=''>Country</option>
-                      <option value='option1'>Option 1</option>
-                      <option value='option2'>Option 2</option>
+                      {countries.map(({ name, unicodeFlag }) => (
+                        <option key={name} value={name}>
+                          {unicodeFlag} {name}
+                        </option>
+                      ))}
                     </select>
                   </Form.Control>
                 </Form.Field>
@@ -109,7 +125,7 @@ export default function ContactForm() {
               <Form.Field name='message'>
                 <Form.Control asChild>
                   <textarea
-                    className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300 resize-none h-36 mt-'
+                    className='rounded-lg border w-full p-2.5 px-3.5 mt-4 shadow-sm border-gray-300 resize-none h-36 mt-'
                     placeholder='What would you like to talk about?'
                     required
                   />
@@ -118,22 +134,27 @@ export default function ContactForm() {
               <Form.Field name='privacyPolicy'>
                 <Form.Control asChild>
                   <label>
-                    <input type='checkbox' required />
-                    By submitting this form I accept privacy policy and cookie
-                    policy. *
+                    <input
+                      type='checkbox'
+                      className='relative mt-4 mr-4'
+                      required
+                    />
+                    By submitting this form I accept{' '}
+                    <a href='#'>privacy policy</a> and{' '}
+                    <a href='#'>cookie policy</a> . *
                   </label>
                 </Form.Control>
               </Form.Field>
               <Form.Field name='newsletter'>
                 <Form.Control asChild>
                   <label>
-                    <input type='checkbox' />I would like to receive your
-                    newsletter.
+                    <input type='checkbox' className='relative mt-4 mr-4' />I
+                    would like to receive your newsletter.
                   </label>
                 </Form.Control>
               </Form.Field>
               <Form.Submit asChild>
-                <button className='whitespace-pre-wrap text-[rgb(20,9,35)] text-base leading-6 px-3 py-2 bg-[rgb(167,208,216)] rounded-lg mt-4'>
+                <button className='py-2.5 px-4 bg-[rgb(167,208,216)] rounded-xl mt-4'>
                   Submit
                 </button>
               </Form.Submit>
