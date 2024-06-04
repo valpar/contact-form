@@ -19,13 +19,13 @@ export default function ContactForm() {
     <div className='container-tuum-padded-x relative'>
       <button
         type='button'
-        className='modal__button group absolute z-50 focus-visible:rounded focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-0 focus-visible:outline-brand-black/50 right-[20px] sm:right-[70px] md:right-[102px] lg:right-[108px] xl:right-[172px] lg:top-[52px] bg-contain !bg-center'
+        className='modal__button group absolute right-[20px] sm:right-[70px] md:right-[102px] lg:right-[108px] xl:right-[172px] lg:top-[52px] '
       >
         <img src='/src/assets/icon--close.svg' alt='close' />
       </button>
-      <div className='grid sm:grid-cols-2 md:grid-cols-1 mt-[6%] tall:mt-[3%] tall-md:mt-[6%] tall:pb-[3%] pb-[6%] lg:[grid-template-columns:35%_65%] sm:px-10 md:px-16 lg:px-10 xl:px-20'>
+      <div className='grid grid-cols-1 mt-[6%] tall:mt-[3%] tall-md:mt-[6%] tall:pb-[3%] pb-[6%] lg:[grid-template-columns:35%_65%] sm:px-10 md:px-16 lg:px-10 xl:px-20'>
         <aside>
-          <div className='"space-y-4 pb-7 text-center sm:text-left md:space-y-7 lg:pb-0"'>
+          <div className='space-y-4 pb-7 text-center sm:text-left md:space-y-7 lg:pb-0'>
             <div>
               {' '}
               <p className='text-xl md:font-reckless-neue md:text-4xl '>
@@ -33,20 +33,18 @@ export default function ContactForm() {
               </p>
               <a
                 href='#'
-                className='underline-link text-lg after:bottom-0.5 after:w-full after:bg-brand-black hover:after:w-0 hover:after:bg-transparent focus-visible:rounded focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-brand-black/50'
+                className='underline-link text-lg relative inline-block cursor-pointer'
               >
                 press@tuum.com
               </a>
             </div>
-          </div>
-          <div className='space-y-4 pb-7 text-center sm:text-left md:space-y-7 lg:pb-0'>
             <div>
               <p className='text-xl md:font-reckless-neue md:text-4xl'>
                 Career questions:
               </p>
               <a
-                href=''
-                className='underline-link text-lg after:bottom-0.5 after:w-full after:bg-brand-black hover:after:w-0 hover:after:bg-transparent focus-visible:rounded focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-brand-black/50'
+                href='#'
+                className='underline-link text-lg relative inline-block cursor-pointer'
               >
                 careers@tuum.com
               </a>
@@ -100,10 +98,12 @@ export default function ContactForm() {
                 <Form.Field name='option'>
                   <Form.Control asChild>
                     <select
-                      className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300'
+                      className='rounded-lg border w-full p-3 px-3.5 shadow-sm border-gray-300'
                       required
                     >
-                      <option value=''>Country</option>
+                      <option disabled selected value='Country'>
+                        Country
+                      </option>
                       {countries.map(({ name, unicodeFlag }) => (
                         <option key={name} value={name}>
                           {unicodeFlag} {name}
@@ -140,8 +140,14 @@ export default function ContactForm() {
                       required
                     />
                     By submitting this form I accept{' '}
-                    <a href='#'>privacy policy</a> and{' '}
-                    <a href='#'>cookie policy</a> . *
+                    <a target='_blank' rel='noopener' href='#'>
+                      privacy policy
+                    </a>{' '}
+                    and{' '}
+                    <a target='_blank' rel='noopener' href='#'>
+                      cookie policy
+                    </a>{' '}
+                    .*
                   </label>
                 </Form.Control>
               </Form.Field>
@@ -154,7 +160,7 @@ export default function ContactForm() {
                 </Form.Control>
               </Form.Field>
               <Form.Submit asChild>
-                <button className='py-2.5 px-4 bg-[rgb(167,208,216)] rounded-xl mt-4'>
+                <button className='p-2.5 px-4 text-base bg-[rgb(167,208,216)] hover:bg-[#D0D5DD] rounded-xl mt-4'>
                   Submit
                 </button>
               </Form.Submit>
