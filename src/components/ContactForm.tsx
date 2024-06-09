@@ -4,16 +4,39 @@ import './ContactForm.css';
 
 export default function ContactForm() {
   const [countries, setCountries] = useState([]);
+  const [formValues, setFormValues] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    companyName: '',
+  });
+
+  const [isActive, setIsActive] = useState({
+    firstName: false,
+    lastName: false,
+    email: false,
+    companyName: false,
+  });
+
+  const handleBlur = (field: string) => {
+    setIsActive({ ...isActive, [field]: true });
+  };
 
   useEffect(() => {
     fetch('https://countriesnow.space/api/v0.1/countries/flag/unicode')
       .then((response) => response.json())
       .then((data) => {
-        console.log('Fetched data:', data);
         setCountries(data.data);
       })
       .catch((error) => console.error('Fetch error:', error));
   }, []);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormValues({
+      ...formValues,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   return (
     <div className='container-tuum-padded-x relative'>
@@ -58,33 +81,59 @@ export default function ContactForm() {
                 <h1 className='text-5xl leading-15'>Contact us</h1>
               </div>
               <div className='grid grid-cols-2 gap-4'>
-                <Form.Field name='firstName'>
+                <Form.Field name='firstName' className='relative'>
                   <Form.Control asChild>
                     <input
+                      name='firstName'
+                      value={formValues.firstName}
+                      onChange={handleInputChange}
+                      onBlur={() => handleBlur('firstName')}
                       className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300'
                       placeholder='First name'
                       required
                     />
                   </Form.Control>
+                  {isActive.firstName && formValues.firstName === '' && (
+                    <div className='absolute -top-1.5 left-3 bg-white px-1 text-red-500 text-xs'>
+                      Please complete this required field.
+                    </div>
+                  )}
                 </Form.Field>
-                <Form.Field name='lastName'>
+                <Form.Field name='lastName' className='relative'>
                   <Form.Control asChild>
                     <input
+                      name='lastName'
+                      value={formValues.lastName}
+                      onChange={handleInputChange}
+                      onBlur={() => handleBlur('lastName')}
                       className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300'
                       placeholder='Last name'
                       required
                     />
                   </Form.Control>
+                  {isActive.lastName && formValues.lastName === '' && (
+                    <div className='absolute -top-1.5 left-3 bg-white px-1 text-red-500 text-xs'>
+                      Please complete this required field.
+                    </div>
+                  )}
                 </Form.Field>
-                <Form.Field name='email'>
+                <Form.Field name='email' className='relative'>
                   <Form.Control asChild>
                     <input
+                      name='email'
+                      value={formValues.email}
+                      onChange={handleInputChange}
+                      onBlur={() => handleBlur('email')}
                       className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300'
                       placeholder='Email'
-                      type='email'
                       required
                     />
                   </Form.Control>
+                  {isActive.email && formValues.email === '' && (
+                    <div className='absolute -top-1.5 left-3 bg-white px-1 text-red-500 text-xs'>
+                      Please complete this required field.
+                    </div>
+                  )}
                 </Form.Field>
                 <Form.Field name='jobTitle'>
                   <Form.Control asChild>
@@ -100,6 +149,7 @@ export default function ContactForm() {
                     <select
                       className='rounded-lg border w-full p-3 px-3.5 shadow-sm border-gray-300'
                       required
+                      title='Country'
                     >
                       <option disabled selected value='Country'>
                         Country
@@ -112,14 +162,23 @@ export default function ContactForm() {
                     </select>
                   </Form.Control>
                 </Form.Field>
-                <Form.Field name='extra'>
+                <Form.Field name='companyName' className='relative'>
                   <Form.Control asChild>
                     <input
+                      name='companyName'
+                      value={formValues.companyName}
+                      onChange={handleInputChange}
+                      onBlur={() => handleBlur('companyName')}
                       className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300'
-                      placeholder='Company name'
+                      placeholder='Company Name'
                       required
                     />
                   </Form.Control>
+                  {isActive.companyName && formValues.companyName === '' && (
+                    <div className='absolute -top-1.5 left-3 bg-white px-1 text-red-500 text-xs'>
+                      Please complete this required field.
+                    </div>
+                  )}
                 </Form.Field>
               </div>
               <Form.Field name='message'>
@@ -133,7 +192,7 @@ export default function ContactForm() {
               </Form.Field>
               <Form.Field name='privacyPolicy'>
                 <Form.Control asChild>
-                  <label>
+                  <div className='mt-1'>
                     <input
                       type='checkbox'
                       className='relative mt-4 mr-4'
@@ -146,17 +205,17 @@ export default function ContactForm() {
                     and{' '}
                     <a target='_blank' rel='noopener' href='#'>
                       cookie policy
-                    </a>{' '}
-                    .*
-                  </label>
+                    </a>
+                    . *
+                  </div>
                 </Form.Control>
               </Form.Field>
               <Form.Field name='newsletter'>
                 <Form.Control asChild>
-                  <label>
+                  <div className='mt-1'>
                     <input type='checkbox' className='relative mt-4 mr-4' />I
                     would like to receive your newsletter.
-                  </label>
+                  </div>
                 </Form.Control>
               </Form.Field>
               <Form.Submit asChild>
