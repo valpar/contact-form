@@ -16,6 +16,7 @@ export default function ContactForm() {
     lastName: false,
     email: false,
     companyName: false,
+    countryName: false,
   });
 
   const handleBlur = (field: string) => {
@@ -44,14 +45,14 @@ export default function ContactForm() {
         type='button'
         className='modal__button group absolute right-[20px] sm:right-[70px] md:right-[102px] lg:right-[108px] xl:right-[172px] lg:top-[52px] '
       >
-        <img src='/src/assets/icon--close.svg' alt='close' />
+        <img src='/icons/icon--close.svg' alt='close' />
       </button>
       <div className='grid grid-cols-1 mt-[6%] tall:mt-[3%] tall-md:mt-[6%] tall:pb-[3%] pb-[6%] lg:[grid-template-columns:35%_65%] sm:px-10 md:px-16 lg:px-10 xl:px-20'>
         <aside>
           <div className='space-y-4 pb-7 text-center sm:text-left md:space-y-7 lg:pb-0'>
             <div>
               {' '}
-              <p className='text-xl md:font-reckless-neue md:text-4xl '>
+              <p className='text-xl leading-7.5 md:font-reckless-neue md:text-4xl md:leading-12 md:tracking-tighter  '>
                 Media enquiries:
               </p>
               <a
@@ -62,7 +63,7 @@ export default function ContactForm() {
               </a>
             </div>
             <div>
-              <p className='text-xl md:font-reckless-neue md:text-4xl'>
+              <p className='text-xl leading-7.5 md:font-reckless-neue md:text-4xl md:leading-12 md:tracking-tighter '>
                 Career questions:
               </p>
               <a
@@ -88,7 +89,7 @@ export default function ContactForm() {
                       value={formValues.firstName}
                       onChange={handleInputChange}
                       onBlur={() => handleBlur('firstName')}
-                      className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300'
+                      className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300 focus:outline-focus-blue'
                       placeholder='First name'
                       required
                     />
@@ -106,7 +107,7 @@ export default function ContactForm() {
                       value={formValues.lastName}
                       onChange={handleInputChange}
                       onBlur={() => handleBlur('lastName')}
-                      className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300'
+                      className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300 focus:outline-focus-blue'
                       placeholder='Last name'
                       required
                     />
@@ -124,7 +125,7 @@ export default function ContactForm() {
                       value={formValues.email}
                       onChange={handleInputChange}
                       onBlur={() => handleBlur('email')}
-                      className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300'
+                      className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300 focus:outline-focus-blue'
                       placeholder='Email'
                       required
                     />
@@ -138,16 +139,15 @@ export default function ContactForm() {
                 <Form.Field name='jobTitle'>
                   <Form.Control asChild>
                     <input
-                      className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300'
+                      className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300 focus:outline-focus-blue '
                       placeholder='Job Title'
-                      required
                     />
                   </Form.Control>
                 </Form.Field>
                 <Form.Field name='option'>
                   <Form.Control asChild>
                     <select
-                      className='rounded-lg border w-full p-3 px-3.5 shadow-sm border-gray-300'
+                      className='rounded-lg border w-full p-3 px-3.5 shadow-sm border-gray-300 focus:outline-focus-blue'
                       required
                       title='Country'
                     >
@@ -169,8 +169,8 @@ export default function ContactForm() {
                       value={formValues.companyName}
                       onChange={handleInputChange}
                       onBlur={() => handleBlur('companyName')}
-                      className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300'
-                      placeholder='Company Name'
+                      className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300 focus:outline-focus-blue'
+                      placeholder='Company name'
                       required
                     />
                   </Form.Control>
@@ -184,7 +184,7 @@ export default function ContactForm() {
               <Form.Field name='message'>
                 <Form.Control asChild>
                   <textarea
-                    className='rounded-lg border w-full p-2.5 px-3.5 mt-4 shadow-sm border-gray-300 resize-none h-36 mt-'
+                    className='rounded-lg border w-full p-2.5 px-3.5 mt-4 shadow-sm border-gray-300 focus:outline-focus-blue resize-none h-36 mt-'
                     placeholder='What would you like to talk about?'
                     required
                   />
@@ -199,11 +199,21 @@ export default function ContactForm() {
                       required
                     />
                     By submitting this form I accept{' '}
-                    <a target='_blank' rel='noopener' href='#'>
+                    <a
+                      target='_blank'
+                      rel='noopener'
+                      href='#'
+                      className='text-link-blue underline'
+                    >
                       privacy policy
                     </a>{' '}
                     and{' '}
-                    <a target='_blank' rel='noopener' href='#'>
+                    <a
+                      target='_blank'
+                      rel='noopener'
+                      href='#'
+                      className='text-link-blue underline'
+                    >
                       cookie policy
                     </a>
                     . *
@@ -219,7 +229,7 @@ export default function ContactForm() {
                 </Form.Control>
               </Form.Field>
               <Form.Submit asChild>
-                <button className='p-2.5 px-4 text-base bg-[rgb(167,208,216)] hover:bg-[#D0D5DD] rounded-xl mt-4'>
+                <button className='py-2.5 px-4.5 text-base bg-[rgb(167,208,216)] hover:bg-[#D0D5DD] rounded-xl mt-4'>
                   Submit
                 </button>
               </Form.Submit>
