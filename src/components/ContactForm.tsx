@@ -51,7 +51,7 @@ export default function ContactForm() {
     <div className='container-tuum-padded-x relative'>
       <button
         type='button'
-        className='modal__button group absolute right-[20px] sm:right-[70px] md:right-[102px] lg:right-[108px] xl:right-[172px] lg:top-[52px] '
+        className='modal__button group absolute top-[4px] right-[24px] sm:right-[74px] md:right-[106px] lg:right-[112px] xl:right-[176px] lg:top-[56px] '
       >
         <img src='/icons/icon--close.svg' alt='close' className='scale-125' />
       </button>
