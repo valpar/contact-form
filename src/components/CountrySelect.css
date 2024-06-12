@@ -1,0 +1,8 @@
+.custom-select {
+  appearance: none;
+  background: url('data:image/svg+xml;utf8,<svg fill="gray" viewBox="0 0 140 140" width="50" height="50" xmlns="http://www.w3.org/2000/svg"><path d="M35 55l35 35 35-35z"/></svg>')
+    no-repeat;
+  background-position: right 10px center; /* Adjust the position of the arrow here */
+  background-size: 1em;
+  padding-right: 10px; /* Adjust the padding here */
+}
