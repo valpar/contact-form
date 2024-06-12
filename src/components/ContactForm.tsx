@@ -1,5 +1,8 @@
 import * as Form from '@radix-ui/react-form';
 import { useEffect, useState } from 'react';
+import FormInputField from './FormInputField';
+import InfoBlock from './InfoBlock';
+import CountrySelect from './CountrySelect';
 import './ContactForm.css';
 
 export default function ContactForm() {
@@ -55,29 +58,8 @@ export default function ContactForm() {
       <div className='grid grid-cols-1 mt-[6%] tall:mt-[3%] tall-md:mt-[6%] tall:pb-[3%] pb-[6%] lg:[grid-template-columns:35%_65%] sm:px-10 md:px-16 lg:px-10 xl:px-20'>
         <aside>
           <div className='space-y-4 pb-7 text-center sm:text-left md:space-y-7 lg:pb-0'>
-            <div>
-              {' '}
-              <p className='text-xl leading-7.5 md:font-reckless-neue md:text-4xl md:leading-12 md:tracking-tighter  '>
-                Media enquiries:
-              </p>
-              <a
-                href='#'
-                className='underline-link text-lg relative inline-block cursor-pointer'
-              >
-                press@tuum.com
-              </a>
-            </div>
-            <div>
-              <p className='text-xl leading-7.5 md:font-reckless-neue md:text-4xl md:leading-12 md:tracking-tighter '>
-                Career questions:
-              </p>
-              <a
-                href='#'
-                className='underline-link text-lg relative inline-block cursor-pointer'
-              >
-                careers@tuum.com
-              </a>
-            </div>
+            <InfoBlock text='Media enquiries:' link='press@tuum.com' />
+            <InfoBlock text='Career questions:' link='careers@tuum.com' />
           </div>
         </aside>
         <div className='bg-white tall:py-6 tall-md:py-8 py-8 px-8 lg:px-10 xl:px-16 rounded-[40px]'>
@@ -87,106 +69,40 @@ export default function ContactForm() {
                 <h1 className='text-5xl leading-15'>Contact us</h1>
               </div>
               <div className='grid grid-cols-2 gap-4'>
-                <Form.Field name='firstName' className='relative'>
-                  <Form.Control asChild>
-                    <input
-                      name='firstName'
-                      value={formValues.firstName}
-                      onChange={handleInputChange}
-                      onBlur={() => handleBlur('firstName')}
-                      className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300 focus:outline-focus-blue'
-                      placeholder='First name'
-                      required
-                    />
-                  </Form.Control>
-                  {isActive.firstName && formValues.firstName === '' && (
-                    <div className='absolute -top-1.5 left-3 bg-white px-1 text-red-500 text-xs'>
-                      Please complete this required field.
-                    </div>
-                  )}
-                </Form.Field>
-                <Form.Field name='lastName' className='relative'>
-                  <Form.Control asChild>
-                    <input
-                      name='lastName'
-                      value={formValues.lastName}
-                      onChange={handleInputChange}
-                      onBlur={() => handleBlur('lastName')}
-                      className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300 focus:outline-focus-blue'
-                      placeholder='Last name'
-                      required
-                    />
-                  </Form.Control>
-                  {isActive.lastName && formValues.lastName === '' && (
-                    <div className='absolute -top-1.5 left-3 bg-white px-1 text-red-500 text-xs'>
-                      Please complete this required field.
-                    </div>
-                  )}
-                </Form.Field>
-                <Form.Field name='email' className='relative'>
-                  <Form.Control asChild>
-                    <input
-                      name='email'
-                      value={formValues.email}
-                      onChange={handleInputChange}
-                      onBlur={() => handleBlur('email')}
-                      className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300 focus:outline-focus-blue'
-                      placeholder='Email'
-                      required
-                    />
-                  </Form.Control>
-                  {isActive.email && formValues.email === '' && (
-                    <div className='absolute -top-1.5 left-3 bg-white px-1 text-red-500 text-xs'>
-                      Please complete this required field.
-                    </div>
-                  )}
-                </Form.Field>
-                <Form.Field name='jobTitle'>
-                  <Form.Control asChild>
-                    <input
-                      className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300 focus:outline-focus-blue '
-                      placeholder='Job Title'
-                    />
-                  </Form.Control>
-                </Form.Field>
-                <Form.Field name='option'>
-                  <Form.Control asChild>
-                    <select
-                      className='rounded-lg border w-full p-3 px-3.5 shadow-sm border-gray-300 focus:outline-focus-blue'
-                      required
-                      title='Country'
-                    >
-                      <option disabled selected value='Country'>
-                        Country
-                      </option>
-                      {countries
-                        .sort((a, b) => a.name.localeCompare(b.name))
-                        .map(({ name, unicodeFlag }) => (
-                          <option key={name} value={name}>
-                            {unicodeFlag} {name}
-                          </option>
-                        ))}
-                    </select>
-                  </Form.Control>
-                </Form.Field>
-                <Form.Field name='companyName' className='relative'>
-                  <Form.Control asChild>
-                    <input
-                      name='companyName'
-                      value={formValues.companyName}
-                      onChange={handleInputChange}
-                      onBlur={() => handleBlur('companyName')}
-                      className='rounded-lg border w-full p-2.5 px-3.5 shadow-sm border-gray-300 focus:outline-focus-blue'
-                      placeholder='Company name'
-                      required
-                    />
-                  </Form.Control>
-                  {isActive.companyName && formValues.companyName === '' && (
-                    <div className='absolute -top-1.5 left-3 bg-white px-1 text-red-500 text-xs'>
-                      Please complete this required field.
-                    </div>
-                  )}
-                </Form.Field>
+                <FormInputField
+                  name='firstName'
+                  value={formValues.firstName}
+                  handleInputChange={handleInputChange}
+                  handleBlur={handleBlur}
+                  isActive={isActive.firstName}
+                  placeholder='First name'
+                />
+                <FormInputField
+                  name='lastName'
+                  value={formValues.lastName}
+                  handleInputChange={handleInputChange}
+                  handleBlur={handleBlur}
+                  isActive={isActive.lastName}
+                  placeholder='Last name'
+                />
+                <FormInputField
+                  name='email'
+                  value={formValues.email}
+                  handleInputChange={handleInputChange}
+                  handleBlur={handleBlur}
+                  isActive={isActive.email}
+                  placeholder='Email'
+                />
+                <FormInputField name='jobTitle' placeholder='Job Title' />
+                <CountrySelect countries={countries} />
+                <FormInputField
+                  name='companyName'
+                  value={formValues.companyName}
+                  handleInputChange={handleInputChange}
+                  handleBlur={handleBlur}
+                  isActive={isActive.companyName}
+                  placeholder='Company name'
+                />
               </div>
               <Form.Field name='message'>
                 <Form.Control asChild>
