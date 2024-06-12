@@ -1,30 +1,21 @@
-# React + TypeScript + Vite
+# Building and Running the Solution
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Follow these steps to build and run the solution:
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Make sure you have [Node.js](https://nodejs.org/) installed on your machine. You can verify this by running `node -v` in your terminal. This should display the version of Node.js installed on your machine.
 
-## Expanding the ESLint configuration
+## Steps
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. **Clone the repository**: Clone the repository to your local machine using the command `git clone https://github.com/valpar/contact-form.git`.
 
-- Configure the top-level `parserOptions` property like this:
+2. **Navigate to the project directory**: Use the command `cd contact-form` to navigate into the project directory.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+3. **Install dependencies**: Run `npm install` to install all the project dependencies.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+4. **Build the project**: Run `npm run build` to build the project. This will create a `dist` directory with the compiled code.
+
+5. **Run the project**: Run `npm run dev` to start the project. This will start the project on a local development server, usually on `http://localhost:5173`.
+
+Open your preferred web browser and navigate to `http://localhost:5173` to view the application.
