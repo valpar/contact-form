@@ -16,6 +16,6 @@ Follow these steps to build and run the solution:
 
 4. **Build the project**: Run `npm run build` to build the project. This will create a `dist` directory with the compiled code.
 
-5. **Run the project**: Run `npm run dev` to start the project. This will start the project on a local development server, usually on `http://localhost:5173`.
+5. **Run the project**: Run `npm run preview` to start the project. This will start the project on a local development server, usually on `http://localhost:4173`.
 
-Open your preferred web browser and navigate to `http://localhost:5173` to view the application.
+Open your preferred web browser and navigate to `http://localhost:4173` to view the application.
