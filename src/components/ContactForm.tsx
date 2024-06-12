@@ -53,7 +53,11 @@ export default function ContactForm() {
         type='button'
         className='modal__button group absolute top-[4px] right-[24px] sm:right-[74px] md:right-[106px] lg:right-[112px] xl:right-[176px] lg:top-[56px] '
       >
-        <img src='/icons/icon--close.svg' alt='close' className='scale-125' />
+        <img
+          src='/icons/icon--close.svg'
+          alt='close'
+          className='scale-125 h-8 w-8'
+        />
       </button>
       <div className='grid grid-cols-1 mt-[6%] tall:mt-[3%] tall-md:mt-[6%] tall:pb-[3%] pb-[6%] lg:[grid-template-columns:35%_65%] sm:px-10 md:px-16 lg:px-10 xl:px-20'>
         <aside>
@@ -116,38 +120,42 @@ export default function ContactForm() {
               <Form.Field name='privacyPolicy'>
                 <Form.Control asChild>
                   <div className='mt-1'>
-                    <input
-                      type='checkbox'
-                      className='relative mt-4 mr-4'
-                      required
-                    />
-                    By submitting this form I accept{' '}
-                    <a
-                      target='_blank'
-                      rel='noopener'
-                      href='#'
-                      className='text-link-blue underline'
-                    >
-                      privacy policy
-                    </a>{' '}
-                    and{' '}
-                    <a
-                      target='_blank'
-                      rel='noopener'
-                      href='#'
-                      className='text-link-blue underline'
-                    >
-                      cookie policy
-                    </a>
-                    . *
+                    <label>
+                      <input
+                        type='checkbox'
+                        className='relative mt-4 mr-4'
+                        required
+                      />
+                      By submitting this form I accept{' '}
+                      <a
+                        target='_blank'
+                        rel='noopener'
+                        href='#'
+                        className='text-link-blue underline'
+                      >
+                        privacy policy
+                      </a>{' '}
+                      and{' '}
+                      <a
+                        target='_blank'
+                        rel='noopener'
+                        href='#'
+                        className='text-link-blue underline'
+                      >
+                        cookie policy
+                      </a>
+                      . *
+                    </label>
                   </div>
                 </Form.Control>
               </Form.Field>
               <Form.Field name='newsletter'>
                 <Form.Control asChild>
                   <div className='mt-1'>
-                    <input type='checkbox' className='relative mt-4 mr-4' />I
-                    would like to receive your newsletter.
+                    <label>
+                      <input type='checkbox' className='relative mt-4 mr-4' />I
+                      would like to receive your newsletter.
+                    </label>
                   </div>
                 </Form.Control>
               </Form.Field>
