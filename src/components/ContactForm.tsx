@@ -53,7 +53,7 @@ export default function ContactForm() {
         type='button'
         className='modal__button group absolute right-[20px] sm:right-[70px] md:right-[102px] lg:right-[108px] xl:right-[172px] lg:top-[52px] '
       >
-        <img src='/icons/icon--close.svg' alt='close' className='w-8 h-8' />
+        <img src='/icons/icon--close.svg' alt='close' className='scale-125' />
       </button>
       <div className='grid grid-cols-1 mt-[6%] tall:mt-[3%] tall-md:mt-[6%] tall:pb-[3%] pb-[6%] lg:[grid-template-columns:35%_65%] sm:px-10 md:px-16 lg:px-10 xl:px-20'>
         <aside>
